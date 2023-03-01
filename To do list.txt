@@ -1,0 +1,5 @@
+1.  Make a footer file
+2.  Make a copyright footer file
+3.  Redesign search book engine
+4.  Fix overflow issues in Dashboard#home and sidebar
+5.  

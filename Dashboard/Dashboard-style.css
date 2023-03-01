@@ -1,0 +1,385 @@
+@import "../Essential Kits/css/Root.css";
+
+/* Sidebar */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.sidebar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 85px;
+    overflow-y: auto;
+    height: 100%;
+    background: var(--sidebar-background-color);
+    transition: all .5s ease;
+    z-index: 8;
+    box-shadow: 5px 0px 30px #070707;
+}
+.sidebar:hover {
+    width: 250px;
+}
+.sidebar header
+{
+    position: sticky;
+    z-index: 6;
+    top: 0;
+    font-size: 22px;
+    color:white;
+    height: 70px;
+    background: #063146;
+    user-select: none;
+    padding-left: 32.5px;
+}
+.sidebar header h3 {
+    height: 100%;
+}
+.sidebar > ul {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    margin: 20px 0px 10px 12.5px;
+}
+.sidebar > ul > li {
+    position: relative;
+}
+.sideopt.active b:nth-child(1) {
+    position: absolute;
+    top: -20px;
+    right: -5px;
+    height: 20px;
+    width: 89%;
+    background: var(--sec-background-color);
+    overflow: hidden;
+    transition: all .2s linear .2s, background .3s linear;
+}
+.sideopt.active b:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--sidebar-background-color);
+    transition: background .3s linear;
+    border-bottom-right-radius: 50px;
+
+}
+.sideopt.active b:nth-child(2) {
+    position: absolute;
+    bottom: -20px;
+    right: -5px;
+    height: 20px;
+    width: 89%;
+    background: var(--sec-background-color);
+    transition: all .2s linear .2s, background .3s linear;
+    overflow: hidden;
+}
+.sideopt.active b:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--sidebar-background-color);
+    transition: background .3s linear;
+    border-top-right-radius: 50px;
+}
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    height:65px;
+    font-size:20px;
+    color: var(--navbar-text);
+    padding-left: 20px;
+    transition: .4s;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+.sidebar ul a,
+.sidebar h3 {
+    display: flex;
+    align-items: center;
+}
+
+.sideopt a:hover,
+.sideopt:hover a:hover {
+    background-color: var(--sidebar-option-hover-color);
+    transition: background-color .25s linear;
+
+}
+.sideopt.active a,
+.sideopt.active a:hover,
+.sideopt.active:hover a:hover {
+    background-color: var(--sec-background-color);
+    transition: background-color .5s linear, padding-left .5s linear;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+.sidebar ul a span,
+.sidebar header h3 span {
+    margin-right:16px;
+}
+.sidebar h3>span,
+.sidebar ul>li>a>span {
+    width: 22.5167px;
+}
+.sidebar .sideopt-text {
+    display: none;
+    min-width: max-content;
+}
+.sidebar:hover .sideopt-text {
+    display: block;
+}
+
+/* Main section */
+
+.main-content {
+    color: var(--context-text);
+    margin-left: 85px;
+    overflow: auto;
+}
+section {
+    padding: 120px 30px 30px 40px;
+    min-height: 100vh;
+}
+section > h2 {
+    font-size: clamp(2rem, 1rem + 5vw, 4rem);
+}
+section > div {
+    margin-top: 1.5rem;
+}
+
+/* Home Section for student */
+
+.gridbox {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(240px, 1fr));
+}
+.gridbox > .gridcard {
+    position: relative;
+    z-index: 1;
+    min-height: 200px;
+    border-top: 1px solid hsla(323.9, 52.2%, 50%, 0.75);
+    border-left: 1px solid hsla(323.9, 52.2%, 50%, 0.75);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    cursor: pointer;
+    /* user-select: none; */
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+.gridbox > .gridcard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(25deg) translateX(0);
+    transition: transform 0.2s cubic-bezier(.45,.05,.55,.95);
+}
+.gridbox > .gridcard:hover::before {
+    transform: skewX(25deg) translateX(-95%);
+}
+.gridcard-content {
+    position: relative;
+    padding: 1.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.gridcard-heading {
+    font-size: clamp(1.2rem, 0.5rem + 2vw, 1.5rem);
+    margin-bottom: 1.5rem;
+}
+.gridcard .gridcard-heading {
+    transform: scale(1.1) translateX(5%);
+    transition: all .2s ease .2s;
+}
+.gridcard:hover .gridcard-heading {
+    transform: scale(1) translateX(0%);
+    transition-delay: 0s;
+}
+.gridcard-context{
+    align-self: flex-end;
+    text-align: right;
+}
+.gridcard .gridcard-context {
+    transform: translateY(25px);
+    opacity: 0;
+    transition: all .2s ease 0s;
+}
+.gridcard:hover .gridcard-context {
+    transform: translateY(0px);
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+/* Request section for Admin */
+
+#request-panel-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+#request-panel-options > * {
+    padding: 5px 10px;
+    user-select: none;
+    cursor: pointer;
+    color: var(--unimportant-text-color);
+}
+#request-panel-options > .active {
+    color: var(--context-text);
+    border-bottom: 5px solid currentColor;
+    font-weight: bold;
+}
+#request-panel-requests > * {
+    display: none;
+}
+#request-panel-requests > .active {
+    display: block;
+}
+
+/* Notification for Admin */
+
+#notification {
+    position: relative;
+}
+#notification-area {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    right: 30px;
+    height: max-content;
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-top: 1px solid rgba(var(--border), 0.25);
+}
+#notification-area > #create-notification {
+	display: flex;
+	padding: 12px 0 0 12px;
+    color: rgba(var(--border), 0.35);
+}
+#notification-area > #create-notification > .icon > * {
+    width: 1.8em;
+    height: 1.8em;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+#notification-area > #create-notification > *:last-child {
+	padding: 3px 0 0 8px;
+	font-size: 1.3rem;
+    cursor: pointer;
+}
+#notification-area > #writing-system {
+    height: 0;
+    opacity: 0;
+    padding-top: 12px;
+    transition: height 0.5s ease-in 0.2s, opacity 0.2s ease-in;
+}
+#notification-area > #writing-system.active {
+    height: max-content;
+    opacity: 1;
+    transition: height 0.5s ease-in, opacity 0.2s ease-in 0.2s;
+}
+#filter-select {
+    display: grid;
+    width: 100%;
+    justify-items: center;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit,minmax(240px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+#filter-select select,
+#filter-select button {
+    width: 200px;
+    text-align: center;
+    padding: 10px 15px;
+    outline: none;
+    border-radius: 8px;
+    color: var(--context-text);
+    background-color: rgba(var(--border), .05);
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0px 2px 6px rgba(var(--border), .2);
+    border: 2px solid rgba(var(--border), .35);
+    cursor: pointer;
+    transition: all .24s ease-in-out;
+}
+#filter-select select:hover,
+#filter-select button:hover {
+    background-color: rgba(var(--border), .1);
+    box-shadow: 0px 4px 15px rgba(var(--border), .3);
+}
+#filter-select select option,
+#filter-select select optgroup {
+    color: initial;
+    font-family: inherit;
+    font-style: normal;
+}
+#filter-select:nth-child(3) {
+    width: 150px;
+}
+option {
+    font-size: initial;
+    font-weight: initial;
+}
+select {
+    appearance: none;
+}
+#msg {
+    resize: none;
+}
+#checked {
+    background: rgba(var(--border), .3);
+    border-radius: 2vmin;
+    height: 60px;
+    width: 98%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.checkbox {
+    padding: 5px 10px;
+    border: 1px solid red;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    gap: 15px;
+    user-select: none;
+    background: #00f3ff;
+}
+:disabled {
+    filter: grayscale(1);
+}
+.checkbox span {
+    cursor: pointer;
+}
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 680px) {
+    section {
+        padding-left: 22px;
+    }
+    #notification-area {
+        left: 22px;
+    }
+}

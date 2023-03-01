@@ -1,0 +1,131 @@
+@import "../Essential Kits/css/Root.css";
+
+html {
+    scroll-behavior: smooth;
+}
+
+#main-section {
+    /* height: 100vh; */
+    backdrop-filter: blur(5px);
+    padding-top: 70px;
+}
+#search-engine {
+    position: sticky;
+    z-index: 2;
+    top: 70px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #42526d;
+    background: var(--background-color);
+    transition: background 0.3s linear;
+}
+#search-engine-searchbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: 50px;
+    border-radius: 30px;
+    background: #fff;
+}
+#search-engine-searchbox::before {
+    content: '';
+    min-width: 60.8%;
+    min-height: 69%;
+    background: var(--light-gradient-color-45deg);
+    border-radius: 60px;
+    position: absolute;
+    z-index: -1;
+}
+#search-engine-searchbox *,
+#autocomplete * {
+    border: none;
+    height: 100%;
+    padding: 10px;
+    outline: none;
+    font-size: 1rem;
+}
+#searchicon {
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0;
+}
+#searchicon > span {
+    color: transparent;
+    background: -o-linear-gradient(45deg, hsl(212, 71%, 26%), hsl(323.9, 52.2%, 50%));
+    background: linear-gradient(45deg, hsl(212, 71%, 26%), hsl(323.9, 52.2%, 50%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    height: auto;
+    padding: 0 10px;
+}
+#searchfield-content {
+    width: 50vw;
+    padding: 0px;
+    height: auto;
+}
+#searchfield-content > * {
+    width: inherit;
+}
+/* #searchfield {
+} */
+#autocomplete {
+    padding: 0;
+    position: absolute;
+    z-index: -1;
+    background: white;
+    height: max-content;
+    top: 65px;
+    margin-top: -1px;
+    transition: height 0.3s linear;
+}
+#autocomplete > * {
+    border-top: 1px solid #ddd;
+}
+.suggestions {
+    cursor: pointer;
+}
+.suggestions.active {
+    background: #aaa;
+}
+#searchbtn {
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 115px;
+    gap: 0.5em;
+    background: var(--dark-gradient-color-45deg);
+    background-size: 300%;
+    background-position: center;
+    color: var(--context-text);
+    transition: all 0.3s linear;
+    cursor: pointer;
+    /* text-shadow: 2px 2px 2px #0006; */
+}
+#searchbtn > * {
+    transform: scale(1.02);
+}
+#searchbtn * {
+    padding: 0;
+    height: auto;
+    font-weight: bold;
+}
+
+#nobooks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#nobooks > img {
+    width: 150px;
+}

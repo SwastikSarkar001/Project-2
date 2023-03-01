@@ -1,0 +1,52 @@
+@import "../Essential Kits/css/Root.css";
+* {
+    color: var(--context-text);
+}
+.boxmain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.mySlides img{
+    border: 2px solid wheat;
+    border-radius: 5px;
+}
+.secondHalf li{
+    list-style: none;  
+}
+
+.secondHalf{
+    /* color: antiquewhite; */
+    margin-right: 10%;
+
+}
+h2 {
+    font-size: clamp(2rem, 1rem + 5vw, 4rem);
+    margin-bottom: 30px;
+}
+.secondHalf > p,
+.secondHalf > ul {
+    font-size: 1.3rem;
+}
+.nav-btn{
+    background: none;
+    color: var(--context-text);
+    border: 2px solid white;
+    padding: 0px 8px;
+    border-radius: 5px;
+}
+/* footer{
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: rgb(2, 2, 88);
+}
+footer p{
+   text-align: center;
+} */
+.icon{
+    font-size:1rem;
+}
